@@ -7,7 +7,12 @@
   <%-include ('./partials/header.ejs') %>
   <div class="note">
     <div class="flex-note">
-      <h4><b class="b"><%= note.title %></b> </h4>
+      <div class="delete">
+        <h4><b class="b"><%= note.title %></b> </h4>
+        <button class="btn-delete" data-id="<%= note.id %>" method="delete">
+          <i class="fa-solid fa-trash-can" data-id="<%= note.id %>"></i>
+        </button>
+      </div>
       <p><i><%= note.text %></i></p>
     </div>
   </div>  

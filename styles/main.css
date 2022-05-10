@@ -112,12 +112,13 @@ main > ul > li > a{
   color: #fff;
 }
 
-.href:hover, main > ul > li > a:hover{
+.href:hover, main > ul > li > a:hover,
+.delete > a:hover {
   transform: scale(1.08);
 }
 
 .href > b:hover, .flex-footer-text > a:hover,
-main > ul > li >  a:hover{
+main > ul > li >  a:hover, .delete > a:hover{
   color:#fff;
 }
 
@@ -138,7 +139,6 @@ main > ul > li >  a:hover{
   text-transform: uppercase;
 }
 
-
 /* NOTE */
 
 .note{
@@ -152,6 +152,15 @@ main > ul > li >  a:hover{
 .flex-note > h3{
   text-transform: uppercase;
 }
+
+main > ul > li{
+  padding: 15px;
+  display: block;
+  word-wrap: break-word;
+  min-width: 319px;
+  max-width: 320px;
+}
+
 
 .flex-note{
   margin: 25px 25px 15px 25px;
@@ -198,8 +207,16 @@ main > ul > li > article > p{
   text-transform: uppercase;
 }
 
+main > article{
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: repeat(1fr);
+}
+
 article{
-  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: -100px;
 }
 
 .fa-solid{
@@ -224,19 +241,33 @@ article{
   border-radius: 3px;
   font-size: 16px;
   box-sizing: border-box;
-  margin-left: 86%;
+  position: relative;
+  margin-left: 83%;
+  bottom: 30px;
+  margin-bottom: -30px;
 }
 
-main > ul > li > a{
+main > a{
   text-decoration: none;
   color: #fff;
 }
 
+article > p{
+  position: relative;
+  bottom: 20px;
+}
 
-main > ul > li > a > article > h3 > .delete > b{
+.flex-note > p{
+  position: relative;
+  bottom: 20px;
+}
+
+.delete > a{
   text-decoration: none;
   color: white;
 }
+
+
 
 /* MAIN */
 
