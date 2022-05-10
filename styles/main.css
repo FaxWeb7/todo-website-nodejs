@@ -6,13 +6,22 @@
 body{
   margin: 0;
   padding: 0;
-  height: 5000px;
+  height: 100vh;
+  min-width: 166px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  
 }
 
+.dark-main{
+    background: black;
+}
+
+/* HEADER */
 .container{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  height: 130px;
 }
 
 .nav{
@@ -23,17 +32,11 @@ body{
   position: sticky;
 }
 
-.header-fixed{
-  position: sticky;
-  left: 0;
-  top: 0;
-}
-
 .logo{
   width: 64px;
   height: 64px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   margin-right: 5%;
 }
 
@@ -41,62 +44,607 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  color: #FFFFA1;
+}
+
+.text{
+  text-align: center;
+}
+
+.header{
+  position: fixed;
+  width: 100%;
+}
+
+header{
+  height: 20%;
+}
+
+.hrefs > ul > li{
+  position: relative;
+  top: 12px;
 }
 
 .hrefs{
   margin-top: -8%;
 }
+/* HEADER */
 
+/* FOOTER */
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0; 
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  background-color: #212529;
+  margin-top: 100px;
+}
+
+.flex-container-footer{
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.flex-footer-text{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 12px;
+  justify-content: center;
+  align-items: center;
+  color:white;
+}
+
+.flex-container-footer > .flex-footer-text > a{
+  text-decoration: none;
+  color: white;
+  width: -30px;
+  color: #FFFFA1;
+}
+
+main > ul > li > a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.href:hover, main > ul > li > a:hover{
+  transform: scale(1.08);
+}
+
+.href > b:hover, .flex-footer-text > a:hover,
+main > ul > li >  a:hover{
+  color:#fff;
+}
+
+.flex-footer-text > a:visited{
+  color: gray;
+}
+
+/* FOOTER */
+
+
+/* NOTE */
+
+.flex-note > .title{
+  padding-left: 10px;
+  padding-top: 5px;
+  word-wrap:break-word;
+  align-self: start;
+  text-transform: uppercase;
+}
+
+
+/* NOTE */
+
+.note{
+  width: 100%;
+  background-color: black;
+  margin-top: -20%; 
+  min-height: 100%;
+
+}
+
+.flex-note > h3{
+  text-transform: uppercase;
+}
+
+.flex-note{
+  margin: 25px 25px 15px 25px;
+  border: 4px solid #ffff42;
+  border-radius: 15px;
+  padding: 15px;
+  color:#fff;
+  background-color: #212529;
+  display: block;
+  word-wrap: break-word;
+  min-width: 319px;
+  max-width: 320px;
+}
+
+
+/* MAIN */
+
+main{
+  width: 100%;
+  background-color: black;
+  margin-top: -20%; 
+  min-height: 100%;
+}
+
+main > ul {
+  margin: 0;
+  padding: 0;
+}
+
+main > ul > li {
+  list-style: none;
+  margin: 25px 25px 15px 25px;
+  border: 4px solid #ffff42;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #212529;
+}
+
+main > ul > li > article > p{
+  color: white;
+}
+
+.b{
+  text-transform: uppercase;
+}
+
+article{
+  text-decoration: none;
+}
+
+.fa-solid{
+  padding: 0;
+  text-decoration: none;
+  color: #fff;
+}
+
+.delete > .b{
+  text-decoration: none;
+  color:#fff;
+}
+
+.delete > button{
+  text-transform: uppercase;
+  padding: 10px 15px;
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  width: 48px;
+  border-radius: 3px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-left: 86%;
+}
+
+main > ul > li > a{
+  text-decoration: none;
+  color: #fff;
+}
+
+
+main > ul > li > a > article > h3 > .delete > b{
+  text-decoration: none;
+  color: white;
+}
+
+/* MAIN */
+
+
+/* ERROR */
+
+.error {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  background: linear-gradient(to bottom, #1d1d1d, #4e4b00);
+  color: #fff;
+  padding-top: 0;
+}
+
+.error h1 {
+  margin-top: 0;
+}
+
+.error-code {
+  text-transform: uppercase;
+  font-size: 160px;
+  margin-bottom: 20px;
+}
+
+/* ERROR */
+
+
+/* NEW NOTE */
+
+
+.add-note {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+form{
+  width: 300px;
+  margin: 30px 25px 15px 25px;
+  border: 4px solid #ffff42;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #212529;
+  color:#fff
+}
+
+.form-text{
+  margin-bottom: 20px;
+}
+
+.form-title > label{
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 7px;
+}
+
+.form-text > label{
+  color: #fff;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.form-title{
+  display: flex;
+  flex-direction: column;
+}
+
+.form-button{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+.form-button > button{
+  background-color: #ffff42;
+  border-radius: 15px ;
+  color: #212529;
+}
+
+/* NEW NOTE */
+
+
+/* MEADIA QUERIES */
 @media (min-width: 2260px) {
   .header{
     display: grid;
-    height: 150px;
-    font-size: 22px;
+    height: 190px;
+    font-size: 32px;
   }
   .logo{
     position:absolute;
-    right: 170%;
-    top: -7px;
-  }
-  .gap{
-    gap: 100px;
-  }
-  .hrefs{
-    position: relative;
-    top: 40px;
-    border-left: 20% solid rgba(0,0,0,0);
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 2259px){
-  .nav{
-    display: grid;
-    height: 60px;
-  }
-  .logo{
-    position:absolute;
-    right: 120%;
-    bottom: 3px;
-  }
-  .gap{
-    gap: 100px;
-  }
-  .hrefs{
-    position: relative;
-    top: 18px;
-    border-left: 20% solid rgba(0,0,0,0);
-  }
-}
-
-@media (min-width: 600px) and (max-width: 1023px){
-  .nav{
-    height: 110px;
+    right: 150%;
   }
   .gap{
     gap: 120px;
   }
   .hrefs{
     position: relative;
-    top: 13px;
+    top: 60px;
+    left: 30%;
+    border-left: 20% solid rgba(0,0,0,0);
+  }
+  main > ul > li {
+    width: 1600px;
+  }
+  .note{
+    margin-top: -150px;
+    font-size: 26px;
+    display: flex;
+    justify-content: center; 
+  }
+  .flex-note{
+    width: 1600px;
+  }
+  main{
+    margin-top: -150px;
+    font-size: 26px;
+    display: flex;
+    justify-content: center; 
   }
 }
+
+@media (min-width: 1472px) and (max-width: 2259px){
+  .container{
+    display: grid;
+    height: 80px;
+  }
+  .logo{
+    position:absolute;
+    right: 80%;
+  }
+  .header{
+    display: grid;
+    height: 110px;
+    font-size: 20px;
+  }
+  .gap{
+    gap: 100px; 
+  }
+  .hrefs{
+    position: relative;
+    top: 90%;
+    border-left: 20% solid rgba(0,0,0,0);
+  }
+  main{
+    margin-top: -100px;
+  }
+  main > ul > li {
+    width: 1400px;
+  }
+  main{
+    font-size: 26px;
+    display: flex;
+    justify-content: center; 
+  }
+  .note{
+    margin-top: -100px;
+    font-size: 26px;
+    display: flex;
+    justify-content: center; 
+  }
+  .flex-note{
+    width: 1400px;
+  }
+}
+
+
+
+@media (min-width: 1260px) and (max-width: 1472px){
+  .container{
+    display: grid;
+    height: 80px;
+  }
+  .logo{
+    position:absolute;
+    right: 80%;
+  }
+  .header{
+    display: grid;
+    height: 110px;
+    font-size: 20px;
+  }
+  .gap{
+    gap: 100px; 
+  }
+  .hrefs{
+    position: relative;
+    top: 70%;
+    border-left: 20% solid rgba(0,0,0,0);
+  }
+  main{
+    margin-top: -100px;
+  }
+  main > ul > li {
+    width: 1000px;
+  }
+  main{
+    font-size: 22px;
+    display: flex;
+    justify-content: center; 
+  }
+  .note{
+    margin-top: -100px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center; 
+  }
+  .flex-note{
+    width: 1000px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1324px){
+  .container{
+    display: grid;
+    height: 80px;
+  }
+  .logo{
+    position:absolute;
+    right: 80%;
+  }
+  .header{
+    display: grid;
+    height: 110px;
+    font-size: 20px;
+  }
+  .gap{
+    gap: 100px; 
+  }
+  .hrefs{
+    position: relative;
+    top: 70%;
+    border-left: 20% solid rgba(0,0,0,0);
+  }
+  main{
+    margin-top: -100px;
+  }
+  main > ul > li {
+    width: 700px;
+  }
+  main{
+    font-size: 22px;
+    display: flex;
+    justify-content: center; 
+  }
+  .note{
+    margin-top: -100px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center; 
+  }
+  .flex-note{
+    width: 700px;
+  }
+}
+
+@media (min-width:768px) and (max-width: 1024px){
+  .container{
+    height: 130px;
+  }
+  .gap{
+    gap: 100px;
+  }
+  .logo{
+    position: relative;
+    left:10%;
+  }
+  .hrefs{
+    position: relative;
+    top: 10px;
+    left: 10%;
+  }
+  main{
+    margin-top: -150px;
+  }
+  main > ul > li {
+    width: 600px;
+  }
+  main{
+    font-size: 20px;
+    display: flex;
+    justify-content: center; 
+  }
+  .note{
+    margin-top: -150px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center; 
+  }
+  .flex-note{
+    width: 600px;
+  }
+}  
+
+@media (min-width: 600px) and (max-width: 768px){
+  .container{
+    display: grid;
+    height: 80px;
+  }
+  .logo{
+    position:absolute;
+    right: 80%;
+  }
+  .header{
+    display: grid;
+    height: 110px;
+    font-size: 18px;
+  }
+  .gap{
+    gap: 60px; 
+  }
+  .hrefs{
+    position: relative;
+    top: 40%;
+    left: 60px;
+    border-left: 20% solid rgba(0,0,0,0);
+  }
+  main > ul > li {
+    width: 550px;
+  }
+  main{
+    font-size: 16px;
+    display: flex;
+    justify-content: center; 
+  }
+  .note{
+    font-size: 16px;
+    display: flex;
+    justify-content: center; 
+  }
+  .flex-note{
+    width: 550px;
+  }
+}  
+
+@media(orientation: portrait){
+  .flex-note{
+    min-height: 200px;
+  }
+}
+
+@media(orientation: landscape) and (min-width: 666px) and (max-width: 668px){
+  .flex-note{
+    min-height: 200px;
+    margin-top: 100px;
+  }
+  main > ul{
+    margin-top: 50px;
+  }
+}
+
+@media (max-height: 446px) and (orientation: landscape){
+  .container{
+    display: grid;
+    height: 20px;
+  }
+  .header{
+    display: grid;
+    height: 50px;
+    font-size: 12px;
+  }
+  .logo{
+    position: relative;
+    right: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .gap{
+    gap: 15px; 
+  }
+  .hrefs{
+    position: relative;
+    top: -8px;
+    border-left: 20% solid rgba(0,0,0,0);
+  }
+  footer{
+    word-wrap: nowrap;
+    height: 30px;
+    font-size: 14px;
+  }
+  
+}
+
+@media (max-width:350px) and (orientation: portrait) {
+  .note{
+    margin-top: -5%; 
+  }
+}
+
+
+@media (min-width: 267px) and (max-width: 348px){
+  .container{
+    height: 250px;
+  }
+}  
+
+@media (max-width: 267px){
+  .container{
+    height: 350px;
+  }
+  .note{
+    margin-top: 30%; 
+  }
+}  
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%-include ('./partials/head.ejs') %>
+</head>
+<body class="dark-main">
+  <%-include ('./partials/header.ejs') %>
+  <%-include ('./partials/footer.ejs') %>
+  <div class="add-note">
+    <form action="/add-note" method="post" class="form-group">
+      <div class="form-title">
+        <label for="input-form">Note title</label>
+        <input id="input-form" type="text" name="title">
+      </div>
+      <div class="form-text">
+        <label for="textarea-input">Text</label>
+        <textarea id="textarea-input" class="form-control" type="text" name="text" rows="4" ></textarea>
+      </div>
+      <div class="form-button">
+        <button type="submit">Submit</button>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

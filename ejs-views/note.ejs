@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%-include ('./partials/head.ejs') %>
+</head>
+<body class="dark-main">
+  <%-include ('./partials/header.ejs') %>
+  <div class="note">
+    <div class="flex-note">
+      <h4><b class="b"><%= note.title %></b> </h4>
+      <p><i><%= note.text %></i></p>
+    </div>
+  </div>  
+  <%-include ('./partials/footer.ejs') %>
+</body>
+</html>

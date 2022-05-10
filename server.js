@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const methodOverride = require('method-override');  
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose'); 
-const nameRoutes = require('./routes/name-routes')
+const noteRoutes = require('./routes/note-routes')
 const {createPath, handleError} = require('./helpers/helper');
 const chalk = require('chalk');
 const successMsg = chalk.bgKeyword('green').white.bold; 
@@ -13,10 +13,10 @@ const reqMsg = chalk.bgKeyword('purple').cyan.bold.underline;
 const app = express();
 app.set('view engine', 'ejs');  
 
-/*mongoose  
+mongoose  
   .connect(process.env.MONGO_URL)  
   .then((res) => console.log(successMsg('Connected to DB'))) 
-  .catch((error) => console.log(errorMsg(error))); */
+  .catch((error) => console.log(errorMsg(error))); 
 
 app.listen(process.env.PORT,  (error) => {
   error ? console.log(errorMsg(error)) : console.log(successMsg(`Listening port ${process.env.PORT}`));
@@ -27,12 +27,7 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended: false})); 
 app.use(express.static('styles')); 
 
-app.get('/', (req, res) => {
-  const title = 'Home';
-  res.render(createPath('index'), {title}); 
-});
-
-app.use(nameRoutes);
+app.use(noteRoutes);
 
 app.use((req, res) => {
   const title = 'Error page';

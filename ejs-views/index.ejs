@@ -3,7 +3,43 @@
 <head>
   <%-include ('./partials/head.ejs') %>
 </head>
-<body>
+<body class="dark-main">
   <%-include ('./partials/header.ejs') %>
+  <main>
+    <ul>
+      <% if (notes.lenght != 0) {%>
+        <% notes.forEach(({title, text, id, createdAt}) => { %>
+          <li>
+              <article>
+                <h3>
+                  <div class="delete">
+                    <a href="<%= id %>" class="bubble">
+                    <b class="b"><%= title %></b> 
+                    </a>
+                    <button class="btn-delete" data-id="<%= id %>" method="delete">
+                      <i class="fa-solid fa-trash-can" data-id="<%= id %>"></i>
+                    </button>
+                  </div>
+                </h3>
+                <p><i><%= text %></i></p>
+              </article>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+  </main>
+  <script>
+    document.addEventListener("click", (e) => {  //прослушка по всем кликам в этом документе
+      const id = e.target?.dataset?.id || null; //если клиент кликает на какой-то элемент, у которого есть id в БД, то выполняется условие
+      if (id) {
+        fetch(`/${id}`, {  // ссылка на страницу и функция, в данном случае меняющая отправляющая метод delete, который уже будет обработан в server.js
+          method: 'DELETE',
+        }).then(() => {  //в случае если пост удален, окно браузер перезагружается
+          window.location.reload();
+        });
+      }
+    });
+  </script>
+  <%-include ('./partials/footer.ejs') %>
 </body>
 </html>
