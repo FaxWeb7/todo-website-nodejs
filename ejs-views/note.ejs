@@ -12,10 +12,28 @@
         <button class="btn-delete" data-id="<%= note.id %>" method="delete">
           <i class="fa-solid fa-trash-can" data-id="<%= note.id %>"></i>
         </button>
+        <a href="/edit/<%= note.id %>" class="btn-edit">
+          <i class="fas fa-edit"></i>
+        </a>
       </div>
       <p><i><%= note.text %></i></p>
+      <div class="date">
+        <%= note.createdAt.toLocaleDateString() %>
+      </div>
     </div>
   </div>  
+  <script>
+    document.addEventListener("click", (e) => {  //прослушка по всем кликам в этом документе
+      const id = e.target?.dataset?.id || null; //если клиент кликает на какой-то элемент, у которого есть id в БД, то выполняется условие
+      if (id) {
+        fetch(`/${id}`, {  // ссылка на страницу и функция, в данном случае меняющая отправляющая метод delete, который уже будет обработан в server.js
+          method: 'DELETE',
+        }).then(() => {  //в случае если пост удален, окно браузер перезагружается
+          window.location.href = '/';
+        });
+      }
+    });
+  </script>
   <%-include ('./partials/footer.ejs') %>
 </body>
 </html>

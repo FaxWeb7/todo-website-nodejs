@@ -22,6 +22,9 @@
                   </div>
                 </h3>
                 <p><i><%= text %></i></p>
+                <div class="date">
+                  <%= createdAt.toLocaleDateString() %>
+                </div>
               </article>
           </li>
         <% }) %>

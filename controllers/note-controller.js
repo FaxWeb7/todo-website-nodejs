@@ -40,13 +40,31 @@ const deleteNote = (req, res) => {
     .catch((err) => res.render(handleError(res, err)))
 };
 
+const getEditNote = (req, res) => {
+  Note
+    .findById(req.params.id)
+    .then((note) => res.render(createPath('edit-note'), {note, title: 'Edit'}))
+    .catch((err) => res.render(handleError(res, err)))
+};
+
+const editNote = (req, res) => {
+  const {title, text} = req.body;
+  const id = req.params.id;
+  Note
+    .findByIdAndUpdate(id, {title, text})
+    .then((result) => res.redirect(`/${id}`))
+    .catch((err) => res.render(handleError(res, err)))
+};
+
 
 module.exports = {
   getNotes,
   getAddNote,
   addNote,
   getNote,
-  deleteNote
+  deleteNote,
+  getEditNote,
+  editNote
 };
 
 

@@ -53,6 +53,8 @@ body{
 
 .header{
   position: fixed;
+  top: 0;
+  z-index: 10;
   width: 100%;
 }
 
@@ -153,15 +155,6 @@ main > ul > li >  a:hover, .delete > a:hover{
   text-transform: uppercase;
 }
 
-main > ul > li{
-  padding: 15px;
-  display: block;
-  word-wrap: break-word;
-  min-width: 319px;
-  max-width: 320px;
-}
-
-
 .flex-note{
   margin: 25px 25px 15px 25px;
   border: 4px solid #ffff42;
@@ -171,8 +164,6 @@ main > ul > li{
   background-color: #212529;
   display: block;
   word-wrap: break-word;
-  min-width: 319px;
-  max-width: 320px;
 }
 
 
@@ -183,11 +174,17 @@ main{
   background-color: black;
   margin-top: -20%; 
   min-height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 main > ul {
   margin: 0;
   padding: 0;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 main > ul > li {
@@ -230,7 +227,7 @@ article{
   color:#fff;
 }
 
-.delete > button{
+.delete > button, .delete > .btn-edit{
   text-transform: uppercase;
   padding: 10px 15px;
   cursor: pointer;
@@ -242,9 +239,18 @@ article{
   font-size: 16px;
   box-sizing: border-box;
   position: relative;
-  margin-left: 83%;
+  margin-left: 100%;
   bottom: 30px;
   margin-bottom: -30px;
+}
+
+.btn-edit{
+  position: relative;
+  top: 5px;
+}
+
+.btn-delete{
+  margin-right: -100px;
 }
 
 main > a{
@@ -255,6 +261,7 @@ main > a{
 article > p{
   position: relative;
   bottom: 20px;
+  width: 50%;
 }
 
 .flex-note > p{
@@ -267,6 +274,16 @@ article > p{
   color: white;
 }
 
+main > ul > li{
+  width: 100%;
+  padding: 15px;
+  display: block;
+  word-wrap: break-word;
+}
+
+main > ul > li > article >  h3 > .delete {
+  width: 80%;
+}
 
 
 /* MAIN */
@@ -354,6 +371,47 @@ form{
 
 /* NEW NOTE */
 
+/* Addings to note */
+
+.note{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.note > .flex-note > .delete{
+  max-width: 80%;
+}
+
+/* Addings to note */
+
+
+/* Addings to new note */
+
+.add-note{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-note > form{
+  width: 60%;
+}
+
+/* Addings to new note */
+
+.note > .flex-note > .delete > .btn-edit{
+  width: 100px;
+  height: 100px;
+}
+
+main > ul > li article > .date{
+  color: #fff;
+  align-self: end;
+}
+
 
 /* MEADIA QUERIES */
 @media (min-width: 2260px) {
@@ -375,17 +433,20 @@ form{
     left: 30%;
     border-left: 20% solid rgba(0,0,0,0);
   }
-  main > ul > li {
-    width: 1600px;
-  }
   .note{
     margin-top: -150px;
     font-size: 26px;
     display: flex;
     justify-content: center; 
   }
-  .flex-note{
-    width: 1600px;
+  .note > .flex-note{
+    width: 33%;
+  }
+  .add-note > .form-group{
+    height: 105%;
+  }
+  .add-note > form{
+    width: 25%;
   }
   main{
     margin-top: -150px;
@@ -393,7 +454,11 @@ form{
     display: flex;
     justify-content: center; 
   }
+  main > ul{
+    width: 33%;
+  }
 }
+
 
 @media (min-width: 1472px) and (max-width: 2259px){
   .container{
@@ -420,9 +485,6 @@ form{
   main{
     margin-top: -100px;
   }
-  main > ul > li {
-    width: 1400px;
-  }
   main{
     font-size: 26px;
     display: flex;
@@ -434,11 +496,28 @@ form{
     display: flex;
     justify-content: center; 
   }
-  .flex-note{
-    width: 1400px;
+  .note > .flex-note{
+    width: 60%;
+  }
+  main > ul{
+    width: 40%;
+  }
+  .add-note > form{
+    width: 40%;
   }
 }
 
+@media (min-width: 1920px) and (max-width: 2259px){
+  main > ul{
+    width: 45%;
+  }
+  .note > .flex-note{
+    width: 45%;
+  } 
+  .add-note > form{
+    width: 30%;
+  }
+}
 
 
 @media (min-width: 1260px) and (max-width: 1472px){
@@ -466,9 +545,6 @@ form{
   main{
     margin-top: -100px;
   }
-  main > ul > li {
-    width: 1000px;
-  }
   main{
     font-size: 22px;
     display: flex;
@@ -480,8 +556,24 @@ form{
     display: flex;
     justify-content: center; 
   }
-  .flex-note{
-    width: 1000px;
+  .note > .flex-note{
+    width: 60%;
+  }
+  main > ul > li > article > p{
+    margin-top: 15px;
+  }
+  .delete > button{
+    margin-top: 20px;
+  }
+  .add-note > .form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+  }
+  .add-note > form{
+    width: 25%;
   }
 }
 
@@ -510,9 +602,6 @@ form{
   main{
     margin-top: -100px;
   }
-  main > ul > li {
-    width: 700px;
-  }
   main{
     font-size: 22px;
     display: flex;
@@ -524,8 +613,18 @@ form{
     display: flex;
     justify-content: center; 
   }
-  .flex-note{
-    width: 700px;
+  .note > .flex-note{
+    width: 60%;
+  }
+  .add-note > .form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+  }
+  .add-note > form{
+    width: 25%;
   }
 }
 
@@ -548,9 +647,7 @@ form{
   main{
     margin-top: -150px;
   }
-  main > ul > li {
-    width: 600px;
-  }
+
   main{
     font-size: 20px;
     display: flex;
@@ -562,8 +659,18 @@ form{
     display: flex;
     justify-content: center; 
   }
-  .flex-note{
-    width: 600px;
+  .note > .flex-note{
+    width: 60%;
+  }
+  .add-note > .form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+  .add-note > form{
+    width: 40%;
   }
 }  
 
@@ -590,9 +697,6 @@ form{
     left: 60px;
     border-left: 20% solid rgba(0,0,0,0);
   }
-  main > ul > li {
-    width: 550px;
-  }
   main{
     font-size: 16px;
     display: flex;
@@ -603,10 +707,49 @@ form{
     display: flex;
     justify-content: center; 
   }
-  .flex-note{
-    width: 550px;
+  .note > .flex-note{
+    width: 60%;
+  }
+  .add-note > .form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+  .add-note > form{
+    width: 50%;
   }
 }  
+
+@media (max-width: 599px){
+  main > ul{
+    width: 97%;
+  }
+  .note > .flex-note{
+    width: 97%;
+  }
+  .add-note > .form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .add-note > form{
+    width: 97%;
+  }
+  .add-note > .form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+  }
+  .add-note > form{
+    width: 70%;
+  }
+}
 
 @media(orientation: portrait){
   .flex-note{
@@ -622,6 +765,10 @@ form{
   main > ul{
     margin-top: 50px;
   }
+  .note > .flex-note{
+    margin-top: 50px;
+  }
+  
 }
 
 @media (max-height: 446px) and (orientation: landscape){
@@ -654,19 +801,33 @@ form{
     height: 30px;
     font-size: 14px;
   }
-  
+  .add-note > .form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 97%;
+  }
+  .add-note > form{
+    width: 97%;
+  }
 }
 
 @media (max-width:350px) and (orientation: portrait) {
   .note{
     margin-top: -5%; 
   }
+  
 }
 
 
 @media (min-width: 267px) and (max-width: 348px){
   .container{
     height: 250px;
+  }
+  main > ul > li article > .date{
+    color: #fff;
+    align-self: end;
   }
 }  
 
@@ -677,5 +838,4 @@ form{
   .note{
     margin-top: 30%; 
   }
-}  
-
+}
