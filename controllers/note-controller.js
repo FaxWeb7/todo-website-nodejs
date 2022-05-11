@@ -1,10 +1,9 @@
-const Notes = require('../models/notes');  
 const {createPath, handleError} = require('../helpers/helper');
 const Note = require('../models/notes');
 
 const getNotes = (req, res) => {
   const title = 'Home';
-  Notes
+  Note
     .find()
     .sort({ createdAt: -1 })
     .then((notes) => res.render(createPath('index'), {title, notes}))
@@ -30,21 +29,21 @@ const getNote = (req, res) => {
   Note
     .findById(req.params.id)
     .then((note) => res.render(createPath('note'), {note, title}))
-    .catch((err) => res.render(handleError(res, err)))
+    .catch((err) => handleError(res, err))
 };
 
 const deleteNote = (req, res) => {
   Note
     .findByIdAndDelete(req.params.id)
     .then((result) => res.sendStatus(200))
-    .catch((err) => res.render(handleError(res, err)))
+    .catch((err) => handleError(res, err))
 };
 
 const getEditNote = (req, res) => {
   Note
     .findById(req.params.id)
     .then((note) => res.render(createPath('edit-note'), {note, title: 'Edit'}))
-    .catch((err) => res.render(handleError(res, err)))
+    .catch((err) => handleError(res, err))
 };
 
 const editNote = (req, res) => {
@@ -53,7 +52,7 @@ const editNote = (req, res) => {
   Note
     .findByIdAndUpdate(id, {title, text})
     .then((result) => res.redirect(`/${id}`))
-    .catch((err) => res.render(handleError(res, err)))
+    .catch((err) => handleError(res, err))
 };
 
 
@@ -64,7 +63,7 @@ module.exports = {
   getNote,
   deleteNote,
   getEditNote,
-  editNote
+  editNote,
 };
 
 

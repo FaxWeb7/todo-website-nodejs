@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose'); 
 const noteRoutes = require('./routes/note-routes')
+const apiNoteRoutes = require('./routes/api-note-routes')
 const {createPath, handleError} = require('./helpers/helper');
 const chalk = require('chalk');
 const successMsg = chalk.bgKeyword('green').white.bold; 
@@ -28,6 +29,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static('styles')); 
 
 app.use(noteRoutes);
+app.use(apiNoteRoutes);
 
 app.use((req, res) => {
   const title = 'Error page';

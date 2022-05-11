@@ -6,7 +6,7 @@ const {
   getNote,
   deleteNote,
   getEditNote,
-  editNote
+  editNote,
 } = require('../controllers/note-controller');
 
 const router = express.Router();

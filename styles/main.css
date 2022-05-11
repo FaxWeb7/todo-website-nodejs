@@ -826,8 +826,8 @@ main > ul > li article > .date{
     height: 250px;
   }
   main > ul > li article > .date{
-    color: #fff;
-    align-self: end;
+  color: #fff;
+  align-self: end;
   }
 }  
 
